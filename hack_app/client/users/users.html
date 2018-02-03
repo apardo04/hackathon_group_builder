@@ -1,0 +1,36 @@
+<template name='users'>
+	{{#requireLogin}}
+		<div class="container">
+			<div class="selectContainer" id="halfCont">
+				<ul class="selectList" id="halfCont">
+					<div class="listHeader" id="twoOptions">
+						<div class="listFilter selected" id="0">Friends</div>
+						<div class="listFilter" id="1">Find Friends</div>
+					</div>
+				</ul>
+				{{#if equals selectedFilter 0}}
+					{{#each users}}
+						{{#if alreadyFriends _id}}
+							{{> user}}
+						{{/if}}
+					{{/each}}
+				{{else}}
+					{{#each users}}
+						{{#unless alreadyFriends _id}}
+							{{> user}}
+						{{/unless}}
+					{{/each}}
+				{{/if}}
+			</div>
+		</div>
+	{{/requireLogin}}
+</template>
+
+<template name='user'>
+	<li class='list-group-item listOption'>
+		<button class='btn btn-default add'>
+			{{#if alreadyFriends _id}} - {{else}} + {{/if}}
+		</button>
+		{{username}}
+	</li>
+</template>

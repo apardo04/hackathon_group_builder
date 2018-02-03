@@ -1,0 +1,13 @@
+<template name="home">
+	<header>
+		<div class="navMenu">
+			<a class="home" href="../">HOME</a>
+			<a href="../hackathons">Hackathons</a>
+			<a href="../users">Friends</a>
+			{{> loginButtons}}
+		</div>
+	</header>
+		<main>
+			{{> Template.dynamic template=main}}
+		</main>
+</template>

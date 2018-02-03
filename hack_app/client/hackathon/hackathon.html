@@ -1,0 +1,53 @@
+<template name='hackathon'>
+    {{#if Template.subscriptionsReady}}
+        <div class="container">
+            {{#each hackathon}}
+                <div style="width:35%">
+                    <img src="{{img1}}" style="max-width:185px;float:left;"/>
+                </div>
+                <div style="width:65%;padding-left:10px;float:left;font-family:monospace;">
+                    <h1 style="font-size:65px;">{{_id}}</h1>
+                    <br>
+                    <h2>{{dates}}</h2>
+                </div>
+                <div class="selectContainer">
+                    <ul class="selectList">
+                        <div class="listHeader" id="twoOptions">
+                            <div class="listFilter selected" id="0">Groups (2+ Members)</div>
+                            <div class="listFilter" id="1">Individuals</div>
+                        </div>
+                    </ul>
+                    <ul class="selectList">
+                        {{#if equals selectedFilter 0}}
+                            {{#if posts.length}}
+                                {{#each posts}}
+                                    <li class="listOption">
+                                        <div style="font-size:20px;">{{description}}</div><br>
+                                        {{members}} Members<br>
+                                        Looking for someone who can: {{skillsNeeded}}<br>
+                                        Posted on: {{datePosted}}
+                                    </li>
+                                {{/each}}
+                            {{else}}
+                                <div style="font-size:20px;">Be The First To Post!</div> {{posts.count}}
+                            {{/if}}
+                        {{/if}}
+                        {{#if equals selectedFilter 1}}
+                            <li class="listOption">
+                                {{#each messages}}
+                                    {{> message}}
+                                {{/each}}
+                            </li>
+                        {{/if}}
+                    </ul>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+        {{> spinner}}
+    {{/if}}
+</template>
+
+<template name="message">
+    <li>{{text}}</li>
+</template>

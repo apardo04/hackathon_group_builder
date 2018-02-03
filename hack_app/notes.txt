@@ -1,0 +1,91 @@
+Setting up project:
+
+cd project-name
+meteor npm install
+meteor
+
+meteor remove insecure
+meteor remove autopublish
+https://www.youtube.com/watch?v=LY8jYd_lWmw
+
+Meteor's client-side session:
+Session provides a global object on the client that you can use to store an arbitrary set of key-value pairs.
+Use it to store things like the currently selected item in a list.
+
+meteor add session
+
+ReactiveVar
+
+meteor add reactive-var
+
+---------
+mongodb:
+
+imports/api/tasks.js ***** into created subfolder/ tasks.js
+import '../imports/api/tasks.js'; ***** import to server/main.js & client/main.js
+Using MongoDB Compass as interface
+
+create from terminal: (But might as well use the GUI)
+db.epics.insert({name: "Ken Bone", img: 'images/epics/kenBone.png', effect: 'He wants to be environmentally friendly.<br>Your first attack cost 2 less energy.'})
+db.items.insert({name: "Horse Head", img: 'images/items/horseMask.png', effect: "When your opponent attacks,<br> they take 10 damage <br> out of confusion."})
+db.heroes.insert({name: 'Ken Bone', hp: 160, max_hp: 150, armor: 0, img: 'images/heroes/rickHarrison.png', m1_name: 'Best I Can Do', m1_energy: 3, m1_dmg: '20', m1_effect: '', m2_name: 'Call In An Expert', m2_energy: 5, m2_dmg: 50, m2_effect: "It's just something I don't know alot about<br>For every epic support +10 dmg.", energy: 0, energy_left: 0})
+db.epics.update(
+    { "name" : "Ken Bone" },
+    {
+		$set: {img: 'images/epics/kenBone2.png'}
+		}
+	)
+	db.tasks.drop()
+
+----------
+Waiting Spinner
+
+meteor add sacha:spin
+use with {{> spinner}}
+
+----------
+Adding User Accounts:
+meteor add accounts-ui accounts-password
+
+Every newly created Meteor project has the insecure package added by default.
+This is the package that allows us to edit the database from the client.
+It's useful when prototyping, but now we are taking off the training wheels.
+To remove this package, go to your app directory and run:
+meteor remove insecure
+
+-----------
+Routing:
+
+FlowRouter:
+meteor add kadira:flow-router
+meteor add kadira:blaze-layout
+
+Iron Router: https://www.youtube.com/watch?v=Zyj8Jh2cnX8
+
+--------------
+Mongol:
+$ meteor add msavin:mongol
+
+Ctrl+M
+
+With Mongol, you can view and edit any client document right in the browser.
+And because Mongol is a debugOnly package, it does not compile to your production build.
+https://github.com/msavin/Mongol
+
+
+--------------------
+HELP:
+when I run server, bash tells me to install
+meteor npm install --save bcrypt, when I do this I get errors.
+
+
+---------------------
+$('.inner').each(function(){
+console.log('db.hackathons.insert({_id: "' + $(this).find("h3").text() + '", dates: "' + $(this).find("p").first().text() + '", startDate: "' + $(this).find("meta").attr("itemprop","startDate").attr("content") + '", endDate: "' + $(this).find("meta").attr("itemprop","endDate").attr("content") + '", location: "' + $(this).find("span").attr("itemprop","addressLocality").text() + '", img1: "' + $(this).find(".image-wrap img").attr("src") + '", img2: "' + $(this).find(".event-logo img").attr("src") + '", website: "' + $(this).parent().attr('href') + '"})')
+})
+
+MLH.io hackathon Jquery scrapper
+
+----------------------
+https://www.udemy.com/beginner-meteor-development-build-a-basic-reddit-clone/learn/
+Use coupon 'quack-reddit' for 50% off.

@@ -1,0 +1,26 @@
+<template name="guide">
+	{{> guideLayout}}
+</template>
+
+<template name="guideLayout">
+	<div class="container">
+		<div id="selectContainer" style="float:none; margin:0 auto;">
+			<ul id="selectList">
+				<div class="listHeader">
+					<div class="listFilter">Rules</div>
+					<div class="listFilter">Interface</div>
+					<div class="listFilter">Tips</div>
+				</div>
+				<li class="listOption">1. Turn order is decided by a coin flip at the start of the game.</li>
+				<li class="listOption">2. At the start of a users turn, an energy is added to their energy pool</li>
+				<li class="listOption">  - Each player has their own energy pools</li>
+				<li class="listOption">  - Energy Pools max out at 6</li>
+				<li class="listOption">3. After receiving your energy, you may start spending them by:</li>
+				<li class="listOption">   - Attacking the enemy. Cost varies, can only attack once per turn</li>
+				<li class="listOption">   - Attaching an item. Cost 2 energies, can be done once per turn</li>
+			  <li class="listOption">   - Summoning a Basic Support. Cost 1 energy, can be done once per turn</li>
+				<li class="listOption">   - Summoning an Epic Support. Cost 3 energies, can be done once per turn</li>
+			</ul>
+		</div>
+	</div>
+</template>

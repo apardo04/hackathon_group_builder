@@ -1,0 +1,7 @@
+<template name='requireLogin'>
+	{{#if currentUser}}
+		{{> Template.contentBlock}}
+	{{else}}
+		<div id="signIn">Please Sign in to continue</div>
+	{{/if}}
+</template>

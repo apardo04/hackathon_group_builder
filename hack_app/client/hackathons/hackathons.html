@@ -1,0 +1,38 @@
+<template name='hackathons'>
+    {{#if Template.subscriptionsReady}}
+        <div class="container">
+            <div class="selectContainer">
+                <ul class="selectList">
+                    <div class="listHeader" id="twoOptions">
+                        <div class="listFilter selected" id="0">Hackathons</div>
+                        <div class="listFilter" id="1">Past Hackathons</div>
+                    </div>
+                </ul>
+                <ul class="selectList">
+                    {{#if equals selectedFilter 0}}
+                        {{#each upcomingHackathons}}
+                            <li class="listOption hackathons">
+                                <a href='../hackathons/{{_id}}'>
+                                    <img src="{{img2}}}"/><br>
+                                    {{_id}} ({{dates}})<br>
+                                </a>
+                                <a href="{{website}}">View Official Website</a>
+                            </li>
+                        {{/each}}
+                    {{/if}}
+                    {{#if equals selectedFilter 1}}
+                        {{#each archivedHackathons}}
+                            <li class="listOption">
+                                <a href='../hackathons/{{_id}}'>
+                                    {{_id}}
+                                </a>
+                            </li>
+                        {{/each}}
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    {{else}}
+        {{> spinner}}
+    {{/if}}
+</template>
