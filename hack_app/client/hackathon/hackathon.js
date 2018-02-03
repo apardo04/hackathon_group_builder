@@ -25,5 +25,9 @@ Template.hackathon.events({
         $('.listFilter').removeClass("selected");
         $(event.target).addClass("selected");
         template.SelectedFilter.set(Number($(event.target).attr('id')));
+    },
+    'click .add' (event, hackathon) {
+        Meteor.call('addPost', FlowRouter.getParam('_id'), hackathon.find('#isGroup').value, hackathon.find('#members').value, hackathon.find('#description').value, hackathon.find('#skillsNeeded').value);
     }
 });
+

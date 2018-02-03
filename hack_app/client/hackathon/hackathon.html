@@ -19,25 +19,51 @@
                     </ul>
                     <ul class="selectList">
                         {{#if equals selectedFilter 0}}
+                            <li class="listOption">
+                                <button class='btn btn-default add'>+</button>
+                                <div id="threadForm">
+                                    How Many Members Do You Have So Far? <input type="text" id="members"><br>
+                                    Description of your project: <input type="text" id="description"><br>
+                                    Skills You're Looking For? <input type="text" id="skillsNeeded">
+                                    <input type="hidden" id="isGroup" value="true">
+                                </div>
+                            </li>
                             {{#if posts.length}}
-                                {{#each posts}}
-                                    <li class="listOption">
-                                        <div style="font-size:20px;">{{description}}</div><br>
-                                        {{members}} Members<br>
-                                        Looking for someone who can: {{skillsNeeded}}<br>
-                                        Posted on: {{datePosted}}
-                                    </li>
+                                {{#each posts.reverse}}
+                                    {{#if isGroup}}
+                                        <li class="listOption">
+                                            <div style="font-size:20px;">{{description}}</div><br>
+                                            {{members}} Members<br>
+                                            Looking for someone who can: {{skillsNeeded}}<br>
+                                        </li>
+                                    {{/if}}
                                 {{/each}}
                             {{else}}
-                                <div style="font-size:20px;">Be The First To Post!</div> {{posts.count}}
+                                <div style="font-size:20px;">Be The First To Post!</div>
                             {{/if}}
                         {{/if}}
                         {{#if equals selectedFilter 1}}
                             <li class="listOption">
-                                {{#each messages}}
-                                    {{> message}}
-                                {{/each}}
+                                <button class='btn btn-default add'>+</button>
+                                <div id="threadForm">
+                                    Kind of Project You're Looking To Work On: <input type="text" id="description"><br>
+                                    My Skills: <input type="text" id="skillsNeeded">
+                                    <input type="hidden" id="isGroup" value="false">
+                                </div>
                             </li>
+                            {{#if posts.length}}
+                                {{#each posts.reverse}}
+                                    {{#unless isGroup}}
+                                        <li class="listOption">
+                                            <div style="font-size:20px;">{{description}}</div><br>
+                                            {{members}} Members<br>
+                                            Looking for someone who can: {{skillsNeeded}}<br>
+                                        </li>
+                                    {{/unless}}
+                                {{/each}}
+                            {{else}}
+                                <div style="font-size:20px;">Be The First To Post!</div>
+                            {{/if}}
                         {{/if}}
                     </ul>
                 </div>

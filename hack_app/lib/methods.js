@@ -1,4 +1,3 @@
-import { Games } from '/imports/api/collections.js';
 import { Hackathons } from '/imports/api/collections.js';
 
 Meteor.methods({
@@ -11,4 +10,11 @@ Meteor.methods({
 
 		Meteor.users.update(this.userId, query);
 	},
+	addPost: function(hackId, isGroup, members, description, skillsNeeded) {
+        Hackathons.update(hackId,
+            {
+                $push: {posts: {author: Meteor.user()._id, isGroup: isGroup, members: members, description: description, skillsNeeded: skillsNeeded}}
+            }
+        )
+	}
 });
