@@ -20,13 +20,13 @@
                     <ul class="selectList">
                         {{#if equals selectedFilter 0}}
                             <li class="listOption">
-                                <button class='btn btn-default add'>+</button>
                                 <div id="threadForm">
-                                    How Many Members Do You Have So Far? <input type="text" id="members"><br>
-                                    Description of your project: <input type="text" id="description"><br>
-                                    Skills You're Looking For? <input type="text" id="skillsNeeded">
+                                    <div class="formText">How Many Members Do You Have So Far?</div> <input type="text" id="members"><br><br>
+                                    <div class="formText">Description of your project:</div> <input type="text" id="description"><br><br>
+                                        <div class="formText">Skills You're Looking For?</div> <input type="text" id="skillsNeeded"><br>
                                     <input type="hidden" id="isGroup" value="true">
                                 </div>
+                                <button class='btn btn-default add'>Click Here To Post</button>
                             </li>
                             {{#if posts.length}}
                                 {{#each posts.reverse}}
@@ -35,6 +35,7 @@
                                             <div style="font-size:20px;">{{description}}</div><br>
                                             {{members}} Members<br>
                                             Looking for someone who can: {{skillsNeeded}}<br>
+                                            Posted by {{author}}<br>
                                         </li>
                                     {{/if}}
                                 {{/each}}
@@ -44,12 +45,11 @@
                         {{/if}}
                         {{#if equals selectedFilter 1}}
                             <li class="listOption">
-                                <button class='btn btn-default add'>+</button>
                                 <div id="threadForm">
-                                    Kind of Project You're Looking To Work On: <input type="text" id="description"><br>
-                                    My Skills: <input type="text" id="skillsNeeded">
-                                    <input type="hidden" id="isGroup" value="false">
+                                    <div class="formText">Kind of Project You're Looking To Work On:</div> <input type="text" id="description"><br><br>
+                                        <div class="formText">My Skills:</div> <input type="text" id="skillsNeeded"><br>
                                 </div>
+                                <button class='btn btn-default add'>Click Here To Post</button>
                             </li>
                             {{#if posts.length}}
                                 {{#each posts.reverse}}

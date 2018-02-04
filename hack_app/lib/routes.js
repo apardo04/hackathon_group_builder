@@ -1,8 +1,8 @@
 FlowRouter.route('/', {
 	name: 'home',
-	action() {
-		BlazeLayout.render('home');
-	}
+    action() {
+        BlazeLayout.render('home', {main: 'hackathons'});
+    }
 });
 
 FlowRouter.route('/users', {

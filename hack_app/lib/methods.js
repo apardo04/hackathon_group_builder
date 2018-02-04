@@ -13,7 +13,7 @@ Meteor.methods({
 	addPost: function(hackId, isGroup, members, description, skillsNeeded) {
         Hackathons.update(hackId,
             {
-                $push: {posts: {author: Meteor.user()._id, isGroup: isGroup, members: members, description: description, skillsNeeded: skillsNeeded}}
+                $push: {posts: {author: Meteor.user().username, isGroup: isGroup, members: members, description: description, skillsNeeded: skillsNeeded}}
             }
         )
 	}

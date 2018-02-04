@@ -11,7 +11,7 @@ Template.hackathons.helpers({
         return Template.instance().SelectedFilter.get();
     },
     upcomingHackathons() {
-        return Hackathons.find({ archived: null })
+        return Hackathons.find({ archived: null }, {sort: {startDate: -1}})
     },
     archivedHackathons() {
         return Hackathons.find({ archived: { $not: null } });

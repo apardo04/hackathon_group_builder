@@ -12,12 +12,7 @@ Template.hackathon.helpers({
     },
     hackathon() {
         return Hackathons.find({});
-    },
-    messages: [
-        { text: 'Hello,' },
-        { text: 'Nice to meet you!' },
-        { text: '<3' },
-    ],
+    }
 });
 
 Template.hackathon.events({
